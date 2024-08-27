@@ -1,8 +1,9 @@
 const ManageProductPage = () => {
-  return( 
-  <div>
-   Manage Product Page
-  </div>
-  );
-};
+    return (
+        <div>
+            ManageProductPage page
+        </div>
+    )
+}
+
 export default ManageProductPage;
