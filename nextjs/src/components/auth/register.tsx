@@ -7,7 +7,7 @@ import Link from 'next/link';
 const Register = () => {
 
     const onFinish = async (values: any) => {
-
+      
     };
 
     return (
