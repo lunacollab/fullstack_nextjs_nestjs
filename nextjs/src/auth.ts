@@ -7,8 +7,6 @@ import { IUser } from "./types/next-auth";
 export const { handlers, signIn, signOut, auth } = NextAuth({
    providers: [
     Credentials({
-      // You can specify which fields should be submitted, by adding keys to the `credentials` object.
-      // e.g. domain, username, password, 2FA token, etc.
       credentials: {
         email: {},
         password: {},
@@ -23,7 +21,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           password:credentials.password
         }
       })
-      if(!res.statusCode){
+      if(res.statusCode === 201){
          return {
           _id:res.data?.user._id,
            name:res.data?.user.name,
@@ -47,7 +45,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   },
   callbacks: {
     jwt({ token, user }) {
-      if (user) { // User is available during sign-in
+      if (user) { 
         token.user = (user as IUser)
       }
       return token
